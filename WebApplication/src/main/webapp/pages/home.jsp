@@ -8,5 +8,6 @@
     <body>
         <h1>Hi</h1>
         <p>You are in home.jsp</p>
+        <p>Welcome ${val}</p>
     </body>
 </html>
