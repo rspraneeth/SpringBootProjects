@@ -49,4 +49,16 @@ public class AlienController {
         mv.addObject(alien);
         return mv;
     }
+
+    @RequestMapping("/saveUpdatedAlien")
+    public ModelAndView saveUpdatedAlien(Alien updAlien){
+        ModelAndView mv = new ModelAndView("newUpdatedAlien.jsp");
+        Alien alien = repo.findById(updAlien.getAid()).orElse(new Alien());
+        alien.setAid(updAlien.getAid());
+        alien.setAname(updAlien.getAname());
+        alien.setTech(updAlien.getTech());
+        repo.save(alien);
+        mv.addObject(alien);
+        return mv;
+    }
 }

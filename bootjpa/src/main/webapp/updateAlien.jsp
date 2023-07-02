@@ -7,9 +7,10 @@
 </head>
 <body>
 <p>Old ${alien}</p>
-<form action="addAlien">
+<p>You can only edit name and tech...</p>
+<form action="saveUpdatedAlien">
     <label>Id:
-        <input type="text" name="aid">
+        <input type="text" name="aid" value="${alien.aid}" readonly>
     </label><br>
     <label>Name:
         <input type="text" name="aname">
@@ -17,7 +18,7 @@
     <label>Tech:
         <input type="text" name="tech">
     </label><br>
-    <input type="submit" value="Add Alien"><br>
+    <input type="submit" value="Update Alien"><br>
 </form>
 </body>
 </html>
