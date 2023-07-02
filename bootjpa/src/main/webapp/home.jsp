@@ -6,10 +6,29 @@
     <title>Alien</title>
 </head>
     <body>
+        <h1>Add Alien...</h1>
         <form action="addAlien">
-            <input type="text" name="aid"><br>
-            <input type="text" name="aname"><br>
-            <input type="submit"><br>
+            <label>Id:
+                <input type="text" name="aid">
+            </label><br>
+            <label>Name:
+                <input type="text" name="aname">
+            </label><br>
+            <label>Tech:
+                <input type="text" name="tech">
+            </label><br>
+            <input type="submit" value="Add Alien"><br>
         </form>
+        <br>
+        <h1>Wanna Fetch Alien?...</h1>
+        <form action="getAlien">
+            <label>Enter Id:
+                <input type="text" name="aid"><br>
+            </label>
+            <input type="submit" value="Fetch Alien">
+            <input type="submit" value="Delete Alien" formaction="deleteAlien">
+            <input type="submit" value="Update Alien" formaction="updateAlien">
+        </form>
+
     </body>
 </html>
