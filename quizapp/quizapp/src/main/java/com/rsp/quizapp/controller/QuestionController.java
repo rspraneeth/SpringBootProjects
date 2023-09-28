@@ -1,6 +1,6 @@
 package com.rsp.quizapp.controller;
 
-import com.rsp.quizapp.Question;
+import com.rsp.quizapp.model.Question;
 import com.rsp.quizapp.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +13,7 @@ import java.util.List;
 public class QuestionController {
 
     @Autowired
-    QuestionService questionService;
+   QuestionService questionService;
 
     @GetMapping("allQuestions")
     public ResponseEntity<List<Question>> getAllQuestions(){
@@ -35,7 +35,7 @@ public class QuestionController {
         return questionService.updateQuestion(id, question);
     }
 
-    @GetMapping("delete/{id}")
+    @DeleteMapping("delete/{id}")
     public ResponseEntity<String> deleteQuestion(@PathVariable Integer id){
         return questionService.deleteQuestion(id);
     }

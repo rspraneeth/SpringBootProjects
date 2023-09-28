@@ -1,4 +1,4 @@
-package com.rsp.quizapp;
+package com.rsp.quizapp.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

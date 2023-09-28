@@ -1,6 +1,6 @@
 package com.rsp.quizapp.service;
 
-import com.rsp.quizapp.Question;
+import com.rsp.quizapp.model.Question;
 import com.rsp.quizapp.dao.QuestionDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -54,7 +54,7 @@ public class QuestionService {
             q.setQuestionTitle(question.getQuestionTitle());
             q.setCorrectAnswer(question.getCorrectAnswer());
             questionDao.save(q);
-            return new ResponseEntity<>("Updated "+id, HttpStatus.ACCEPTED);
+            return new ResponseEntity<>("Updated "+id, HttpStatus.OK);
         } catch (Exception e){
             e.printStackTrace();
         }
@@ -62,12 +62,15 @@ public class QuestionService {
     }
 
     public ResponseEntity<String> deleteQuestion(Integer id) {
-        try {
-            questionDao.deleteById(id);
-            return new ResponseEntity<>("Deleted "+id, HttpStatus.OK);
-        }catch (Exception e){
-            e.printStackTrace();
+        if (questionDao.findQuestionById(id) != null) {
+            try {
+                questionDao.deleteById(id);
+                return new ResponseEntity<>("Deleted "+id, HttpStatus.OK);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         }
+
         return new ResponseEntity<>("Cant delete "+id, HttpStatus.BAD_REQUEST);
     }
 }
