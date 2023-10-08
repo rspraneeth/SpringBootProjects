@@ -1,4 +1,4 @@
-package com.rsp.quizapp.model;
+package com.rsp.quizservice.model;
 
 import lombok.Data;
 

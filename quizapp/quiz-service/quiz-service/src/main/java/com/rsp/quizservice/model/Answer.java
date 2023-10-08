@@ -1,6 +1,5 @@
-package com.rsp.quizapp.model;
+package com.rsp.quizservice.model;
 
-import jakarta.persistence.criteria.CriteriaBuilder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 

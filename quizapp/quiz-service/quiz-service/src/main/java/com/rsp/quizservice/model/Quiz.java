@@ -1,8 +1,7 @@
-package com.rsp.quizapp.model;
+package com.rsp.quizservice.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-
 
 import java.util.List;
 
@@ -16,6 +15,6 @@ public class Quiz {
     private String title;
     private String category;
 
-    @ManyToMany
-    private List<Question> questions;
+    @ElementCollection
+    private List<Integer> questionsIds;
 }
