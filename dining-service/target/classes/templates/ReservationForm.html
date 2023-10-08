@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Reservation System</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous"/>
+</head>
+<body>
+<div class="container" style="background-image: url(../background.jpg)";>
+  <h1 style="text-align:center; color:green;">Reservation System</h1>
+
+  <!-- Reserve Table Form -->
+  <div class="card" style="margin:30px">
+  <h2>Reserve Table</h2>
+  <form th:action="@{/reservation/reserve}" method="post" id="reserve-form">
+    <div class="form-group">
+      <label for="firstName">First Name:</label>
+      <input type="text" class="form-control" id="firstName" name="firstName" required/>
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name:</label>
+      <input type="text" class="form-control" id="lastName" name="lastName" required/>
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number:</label>
+      <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" required/>
+    </div>
+    <div class="form-group">
+      <label for="emailAddress">Email Address:</label>
+      <input type="email" class="form-control" id="emailAddress" name="emailAddress" required/>
+    </div>
+    <button type="submit" class="btn btn-primary">Reserve</button>
+  </form>
+  <br>
+  <!-- Update Reservation Form -->
+  <h2>Update Reservation</h2>
+  <form th:action="@{/reservation/update}" method="post" id="update-form">
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number:</label>
+      <input type="text" class="form-control" id="customerPhoneNumber" name="phoneNumber" placeholder="Number provided during reservation"  required/>
+    </div>
+    <button type="submit" class="btn btn-primary">Update Reservation</button>
+  </form>
+  <br>
+  <!-- Cancel Reservation Form -->
+  <h2>Cancel Reservation</h2>
+  <form th:action="@{/reservation/cancel}" method="post" id="cancel-form">
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number:</label>
+      <input type="text" class="form-control" id="customerPhoneNumberToCancel" name="phoneNumber" placeholder="Number provided during reservation" required/>
+    </div>
+    <button type="submit" class="btn btn-primary">Cancel Reservation</button>
+  </form>
+  <br>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+Ibb"></script>

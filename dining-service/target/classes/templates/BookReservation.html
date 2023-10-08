@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Reservation System</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous"/>
+        <style>
+        .form-group{
+        width:350px;
+        padding-left:20px;
+        }</style>
+</head>
+<body>
+<div class="container">
+  <h1>Reservation System</h1>
+<div class="card"  style="border-radius:5px;padding:20px;border:1px solid black;box-shadow: 3px 3px;margin:60px 90px;width:900px">
+  <!-- Reserve Table Form -->
+  <h2>Reserve Table</h2>
+  <form th:action="@{/reservation/reserve}" method="post" id="reserve-form">
+  <div class="row">
+  <div class="col-6">
+   <div class="form-group">
+      <label for="firstName">First Name:</label>
+      <input type="text" class="form-control" id="firstName" name="firstName" required/>
+    </div>
+  </div>
+   <div class="col-6">
+    <div class="form-group">
+      <label for="lastName">Last Name:</label>
+      <input type="text" class="form-control" id="lastName" name="lastName" required/>
+    </div>
+   </div>
+  </div>
+ <div class="row">
+  <div class="col-6">
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number:</label>
+      <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" required/>
+    </div>
+     </div>
+   <div class="col-6">
+    <div class="form-group">
+      <label for="emailAddress">Email Address:</label>
+      <input type="email" class="form-control" id="emailAddress" name="emailAddress" required/>
+    </div>
+    </div>
+    </div>
+    <br/>
+    <br/>
+    <div class="row">
+    <button type="submit" align="center" style="margin-left:380px" class="btn btn-primary">Reserve</button>
+  </div>
+  </form>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+Ibb"></script>

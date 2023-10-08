@@ -1,0 +1,30 @@
+//SQL Query to create database
+CREATE DATABASE dining_db;
+
+//SQL Query to create table
+CREATE TABLE dining_db.reservations (
+  PhoneNumber VARCHAR(50) PRIMARY KEY NOT NULL,
+  FirstName VARCHAR(50) NOT NULL,
+  LastName VARCHAR(50),
+  ReservationTime DATETIME NOT NULL,
+  ReservationStatus VARCHAR(50) NOT NULL,
+  TableNumber INT NOT NULL
+);
+
+//SQL Query to create child table
+CREATE TABLE dining_db.diningTables (
+  PhoneNumber VARCHAR(50) NOT NULL,
+  TableAvailability VARCHAR(50) NOT NULL,
+  TableNumber INT NOT NULL,
+  ReservationTime VARCHAR(50) NOT NULL,
+  FOREIGN KEY (PhoneNumber) REFERENCES dining_db.reservations(PhoneNumber)
+);
+
+
+//SQL Query to insert test data.
+INSERT INTO reservations (PhoneNumber, FirstName, LastName, ReservationTime, ReservationStatus, TableNumber)
+VALUES
+('1234567890', 'John', 'Doe', '2023-04-22 18:30:00', 'Confirmed', 4),
+('5551234567', 'Jane', 'Smith', '2023-04-23 19:00:00', 'Updated', 8),
+('9876543210', 'Bob', 'Johnson', '2023-04-24 20:30:00', 'Confirmed', 2);
+

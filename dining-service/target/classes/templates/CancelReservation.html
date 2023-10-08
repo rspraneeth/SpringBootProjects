@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Reservation System</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous"/>
+</head>
+<body>
+<div class="container">
+  <h1>Reservation Cancellation</h1>
+
+  <!-- Cancel Reservation Form -->
+  <form th:action="@{/reservation/cancel}" style="margin: 34px;padding: 0px;" method="post" id="cancel-form">
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number:</label>
+      <input style="padding:12px;margin:5px;width:350px" type="text" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Number provided during reservation" required/>
+    </div>
+    <button style="margin:12px" type="submit" class="btn btn-primary">Cancel Reservation</button>
+  </form>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+Ibb"></script>

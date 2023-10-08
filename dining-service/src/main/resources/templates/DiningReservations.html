@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Reservation System</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous"/>
+          <style>
+          body {
+          
+            background-image: linear-gradient(to right, #fffbd5, #b20a2c);
+          }
+          </style>
+</head>
+
+<body >
+<div class="container" >
+<div class="card" style="width:970px;border-radius:5px;margin:70px;padding:20px;border:1px solid black;box-shadow: 3px 3px">
+<h1 style="text-align:center; color:blue; text-shadow: 2px 2px 0px gray;">Dining Reservation</h1>
+<br>
+
+<center>
+    <form th:action="@{/reservation/reservation-form}" method="get" id="reservation-form">
+    <button style="width:200px;margin-top:30px" type="submit" class="btn btn-primary">Book Reservation</button>
+    </form>
+    <br>
+    <form th:action="@{/reservation/update-reservation-form}" method="get" id="reservation-update-form">
+        <button style="width:200px;" type="submit" class="btn btn-primary">Update Reservation</button>
+    </form>
+    <br>
+    <form th:action="@{/reservation/cancel-reservation-form}" method="get" id="reservation-cancel-form">
+        <button style="width:200px;" type="submit" class="btn btn-primary">Cancel Reservation</button>
+    </form>
+    <br>
+    <form th:action="@{/reservation/retrieve-reservation-form}" method="get" id="reservation-find-form">
+        <button style="width:200px;" type="submit" class="btn btn-primary">Retrieve Reservation</button>
+    </form>
+    <br>
+</center>
+</div>
+</div>
+</body>
