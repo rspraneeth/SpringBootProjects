@@ -11,6 +11,12 @@ class EmployeeListComponent extends Component {
             employees: []
         }
         this.addEmployee = this.addEmployee.bind(this);
+        this.editEmployee = this.editEmployee.bind(this);
+        this.deleteEmployee = this.deleteEmployee.bind(this);
+    }
+
+    editEmployee(id){
+        this.props.navigate(`/update-employee/${id}`);
     }
     
     componentDidMount(){
@@ -22,6 +28,15 @@ class EmployeeListComponent extends Component {
     addEmployee(){
         this.props.navigate('/add-employee');
     }
+
+    deleteEmployee(id){
+        EmployeeService.deleteEmployee(id).then(res => {
+            this.setState({employees: this.state.employees.filter(employee => employee.id !== id)});
+        });
+        
+    }
+
+    
 
     render() {
         return (
@@ -49,6 +64,10 @@ class EmployeeListComponent extends Component {
                                         <td>{employee.firstName}</td>
                                         <td>{employee.lastName}</td>
                                         <td>{employee.emailId}</td>
+                                        <td>
+                                            <button onClick={() => this.editEmployee(employee.id)} className='btn btn-info'>Update</button>
+                                            <button style={{marginLeft: "10px"}} onClick={() => this.deleteEmployee(employee.id)} className='btn btn-danger'>Delete</button>
+                                        </td>
 
                                     </tr>
                                 )
@@ -67,5 +86,7 @@ const ListEmployeeComponent = () => {
     const navigate = useNavigate(); // Get the navigate function using the hook
     return <EmployeeListComponent navigate={navigate} />;
 }
+
+
 
 export default ListEmployeeComponent;

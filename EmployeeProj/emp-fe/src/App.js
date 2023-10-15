@@ -4,8 +4,8 @@ import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import ListEmployeeComponent from './components/ListEmployeeComponent';
 import HeaderComponent from './components/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
-// import CreateEmployeeComponent from './components/CreateEmployeeComponent';
 import CreateEmployeeContainer from './components/CreateEmployeeContainer';
+import UpdateEmployeeComponent from './components/UpdateEmployeeComponent';
 
 
 function App() {
@@ -16,14 +16,16 @@ function App() {
         
           <HeaderComponent/>
             <div className="container">
-              <Routes>
+              <Routes> 
+                {/* localhost:3000/ */}
                 <Route path="/" exact element={<ListEmployeeComponent/>}/>
                 <Route path="/employees" element={<ListEmployeeComponent/>}/>
                 <Route path="/add-employee" element={<CreateEmployeeContainer />}/>
+                <Route path="/update-employee/:id" element={<UpdateEmployeeComponent />}/>
               </Routes>
             </div>
           <FooterComponent/>
-        
+  
       </Router>
       
     </div>
