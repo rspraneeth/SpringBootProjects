@@ -28,7 +28,7 @@ public class StudentController {
         return students;
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')") //only admin can now access post method of students
     @PostMapping("/students")
     public Student createStudent(@RequestBody Student student){
         students.add(student);
