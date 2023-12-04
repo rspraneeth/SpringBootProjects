@@ -3,6 +3,7 @@ package com.rsp.loginendtoendapp.user;
 import com.rsp.loginendtoendapp.registration.RegistrationRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
@@ -14,6 +15,7 @@ import java.util.Optional;
 public class UserService implements IUserService {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
     @Override
     public List<User> getAllUsers() {
         return userRepository.findAll();
@@ -22,7 +24,7 @@ public class UserService implements IUserService {
     @Override
     public User registerUser(RegistrationRequest registration) {
         var user = new User(registration.getFirstName(), registration.getLastName()
-                , registration.getEmail(), registration.getPassword()
+                , registration.getEmail(),passwordEncoder.encode(registration.getPassword())
                 , Arrays.asList(new Role("ROLE_USER")));
         return user;
     }
