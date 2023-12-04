@@ -17,12 +17,12 @@
             <div class="col-md-12 m-4 fw-bold">User Registration Form</div>
         </div>
 
-        <form>
+        <form th:action="@{/registration/register}" method="post" th:object="${user}" class="px-4">
             <div class="mb-3 row">
                 <label for="firstName" class="col-sm-2 col-form-label">First Name</label>
                 <div class="col-sm-10">
                     <input type="text"  id="firstName" autofocus="autofocus"
-                           class="form-control" required name="firstName" th:field="@{firstName}">
+                           class="form-control" required name="firstName" th:field="*{firstName}">
                 </div>
             </div>
 
@@ -30,7 +30,7 @@
                 <label for="lastName" class="col-sm-2 col-form-label">Last Name</label>
                 <div class="col-sm-10">
                     <input type="text"  id="lastName" autofocus="autofocus"
-                           class="form-control" required name="lastName" th:field="@{lastName}">
+                           class="form-control" required name="lastName" th:field="*{lastName}">
                 </div>
             </div>
 
@@ -38,7 +38,7 @@
                 <label for="email" class="col-sm-2 col-form-label">Email id</label>
                 <div class="col-sm-10">
                     <input type="text"  id="email" autofocus="autofocus"
-                           class="form-control" required name="email" th:field="@{email}">
+                           class="form-control" required name="email" th:field="*{email}">
                 </div>
             </div>
 
@@ -46,7 +46,7 @@
                 <label for="password" class="col-sm-2 col-form-label">Password</label>
                 <div class="col-sm-10">
                     <input type="password"  id="password" autofocus="autofocus"
-                           class="form-control" required name="password" th:field="@{password}">
+                           class="form-control" required name="password" th:field="*{password}">
                 </div>
             </div>
 

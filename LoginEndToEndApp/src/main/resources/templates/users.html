@@ -22,6 +22,7 @@
                         <th colspan="2">Actions</th>
                     </tr>
                     </thead>
+
                     <tbody>
                     <tr th:each="user : ${users}">
                         <td th:text="${user.firstName}"></td>
@@ -33,9 +34,6 @@
                     </tbody>
                 </table>
             </div>
-<!--            <p>-->
-<!--                <button href="#" th:href="@{/registration/registration-form}" class="btn-success">Add new user</button>-->
-<!--            </p>-->
 
             <div>
                 <button href="/" th:href="@{/registration/registration-form}" type="submit" class="btn btn-success">Add new user</button>
