@@ -55,9 +55,9 @@
             <td th:text="${b.name}"></td>
             <td th:text="${b.author}"></td>
             <td th:text="${b.price}"></td>
-            <td><a th:href="@{/mylist/{id}(id=${b.id})}"><i class="fas fa-heart"></i></a>
-                <a style="color: blue" class="ms-4" th:href="@{/editBook/{id}(id=${b.id})}"><i class="fa fa-edit"></i></a>
-                <a style="color:red;" class="ms-4" th:href="@{/deleteBook/{id}(id=${b.id})}"><i class="fas fa-trash"></i></a>
+            <td><a th:href="@{/mylist/{id}(id=${b.id})}" title="Wishlist"><i class="fas fa-heart"></i></a>
+                <a style="color: blue" class="ms-4" th:href="@{/editBook/{id}(id=${b.id})}" title="Edit"><i class="fa fa-edit"></i></a>
+                <a style="color:red;" class="ms-4" th:href="@{/deleteBook/{id}(id=${b.id})}" title="Delete"><i class="fas fa-trash"></i></a>
             </td>
 
         </tr>
