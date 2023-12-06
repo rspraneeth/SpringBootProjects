@@ -7,14 +7,14 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <title>Book Store</title>
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand text-white" href="#">Book Store</a>
+        <a class="navbar-brand text-white" href="/">Book Store</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -55,9 +55,9 @@
             <td th:text="${b.name}"></td>
             <td th:text="${b.author}"></td>
             <td th:text="${b.price}"></td>
-            <td><a class="btn btn-secondary btn-sm" th:href="@{/mylist/{id}(id=${b.id})}">Add to MyBooks List</a>
-                <a style="color: blue" class="ms-4" th:href="@{/editBook/{id}(id=${b.id})}">edit</a>
-                <a style="color:red;" class="ms-4" th:href="@{/deleteBook/{id}(id=${b.id})}">delete</a>
+            <td><a th:href="@{/mylist/{id}(id=${b.id})}"><i class="fas fa-heart"></i></a>
+                <a style="color: blue" class="ms-4" th:href="@{/editBook/{id}(id=${b.id})}"><i class="fa fa-edit"></i></a>
+                <a style="color:red;" class="ms-4" th:href="@{/deleteBook/{id}(id=${b.id})}"><i class="fas fa-trash"></i></a>
             </td>
 
         </tr>
