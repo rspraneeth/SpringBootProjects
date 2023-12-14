@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleag.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Event Form</title>
+</head>
+<body>
+<h2>Add Event</h2>
+<form th:action="@{/addEvent}" th:object="${event}" method="post" enctype="multipart/form-data">
+    <label>Name: <input type="text" th:field="*{name}" /></label><br/>
+    <label>Description: <input type="text" th:field="*{description}" /></label><br/>
+    <label for="category">Category:</label>
+    <select id="category" name="category" th:field="*{category}" required>
+        <option th:each="cat : ${categories}" th:value="${cat}" th:text="${cat}">Category</option>
+    </select>
+    <label>Date and Time: <input type="datetime-local" th:field="*{dateTime}" /></label><br/>
+    <label>Venue: <input type="text" th:field="*{venue}" /></label><br/>
+    <label>Available Tickets: <input type="number" th:field="*{availableTickets}" /></label><br/>
+    <label>Ticket Price: <input type="number" th:field="*{ticketPrice}" step="0.01" /></label><br/>
+    <label for="imageFile">Event Image:</label>
+    <input type="file" id="imageFile" name="imageFile" accept="image/*" required>
+    <input type="submit" value="Add Event"/>
+</form>
+</body>
+</html>

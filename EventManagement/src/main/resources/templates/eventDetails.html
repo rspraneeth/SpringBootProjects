@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleag.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Event Details</title>
+</head>
+<body>
+<div class="container">
+    <h2 th:text="${event.name}">Event Name</h2>
+
+    <p th:text="${event.description}">Event Description</p>
+    <p th:text="${event.category}">Event Category</p>
+<!--    <p th:text="${#dates.format(event.dateTime, 'yyyy-MM-dd HH:mm')}">Event Date and Time</p>-->
+
+    <p th:text="${event.venue}">Event Venue</p>
+    <p th:text="${event.availableTickets}">Available Tickets</p>
+    <p th:text="${event.ticketPrice}">Ticket Price</p>
+
+    <img th:if="${event.image}" th:src="@{'data:image/png;base64,' + #strings.arrayAsBase64(event.image)}" alt="Event Image">
+
+
+
+    <a th:href="@{/admin/dashboard}">Back to Dashboard</a>
+</div>
+</body>
+</html>
