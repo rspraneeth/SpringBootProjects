@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="amazon" class="com.rsp.beans.Amazon">
+
+        <!--        through constructor-->
+        <constructor-arg ref="ff" name="service"/>
+
+        <!--        through setter-->
+        <property ref="fe" name="service"/>
+
+    </bean>
+
+    <bean id="bd" class="com.rsp.beans.Bluedart"/>
+    <bean id="ff" class="com.rsp.beans.FirstFlight"/>
+    <bean id="fe" class="com.rsp.beans.FedEx"/>
+
+</beans>
