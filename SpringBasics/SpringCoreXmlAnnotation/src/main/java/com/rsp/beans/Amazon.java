@@ -16,12 +16,16 @@ public class Amazon {
         System.out.println("Amazon class instantiated");
     }
 
-//    public Amazon(CourierService service) {
-//        this.service = service;
-//    }
-
+    
     @Autowired
-    @Qualifier("ff")
+    public Amazon(@Qualifier("fe") CourierService service) {
+        this.service = service;
+    }
+
+    
+    //can use annotation on field level, setter, constructor
+    @Autowired
+    @Qualifier("fe")
     public void setService(CourierService service) {
         this.service = service;
         System.out.println("Setter is invoked to perform injection.");
