@@ -8,7 +8,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 @SpringBootApplication
 public class VaccineManagementAppApplication {
@@ -35,6 +34,16 @@ public class VaccineManagementAppApplication {
         service.getAllVaccineInfo().forEach(System.out::println);
 
         service.getVaccinesById(new ArrayList<>(Arrays.asList(1L, 2L, 3L))).forEach(System.out::println);
+
+        System.out.println(service.getVaccineById(8L).orElse(new VaccineDetails()));
+
+        System.out.println(service.removeVaccineById(8L));
+
+        System.out.println(service.removeVaccinesByIds(new ArrayList<>(Arrays.asList(7L, 6L))));
+
+        VaccineDetails v = new VaccineDetails("Covishield", "Astrazenica", 100);
+        v.setId(5L);
+        System.out.println(service.removeVaccineByObject(v));
 
         context.close();
     }

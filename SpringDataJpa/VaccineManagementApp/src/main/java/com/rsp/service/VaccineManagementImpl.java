@@ -5,6 +5,9 @@ import com.rsp.dao.IVaccineRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class VaccineManagementImpl implements IVaccineManagement{
 
@@ -40,5 +43,43 @@ public class VaccineManagementImpl implements IVaccineManagement{
     @Override
     public Iterable<VaccineDetails> getVaccinesById(Iterable<Long> idList) {
         return repo.findAllById(idList);
+    }
+
+    @Override
+    public Optional<VaccineDetails> getVaccineById(Long id) {
+        return repo.findById(id);
+    }
+
+    @Override
+    public String removeVaccineById(Long id) {
+        Optional<VaccineDetails> optional = repo.findById(id);
+        if (optional.isPresent()){
+            repo.deleteById(id);
+            return "record deleted "+optional;
+        }
+        return "no record exists with given id "+id;
+    }
+
+    @Override
+    public String removeVaccinesByIds(List<Long> ids) {
+        Iterable<VaccineDetails> list = repo.findAllById(ids);
+        int count = ids.size();
+        if (count==((List<VaccineDetails>)list).size()){
+            repo.deleteAllById(ids);
+            return "Deleted "+count+" records";
+        }
+
+        return "Not all ids are present to be deleted.";
+    }
+
+    @Override
+    public String removeVaccineByObject(VaccineDetails vaccine) {
+        Optional<VaccineDetails> info = repo.findById(vaccine.getId());
+        if (info.isPresent()){
+            repo.delete(vaccine);
+            return "Vaccine object record deleted";
+        }
+
+        return "Vaccine object not found to delete.";
     }
 }
