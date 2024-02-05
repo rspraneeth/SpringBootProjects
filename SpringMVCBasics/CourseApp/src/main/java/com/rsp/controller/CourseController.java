@@ -30,4 +30,17 @@ public class CourseController {
         model.addAttribute("course", course);
         return "courseInfo";
     }
+
+    @GetMapping("/courses")
+    public String getCourses(Model model){
+        String[] books = {"Java", "Spring", "MicroServices", "JPA"};
+        model.addAttribute("books", books);
+
+        Course c1 = new Course(1, "SpringBoot Course", 3999.99, "3 months");
+        Course c2 = new Course(2, "Java Course", 2999.99, "2 months");
+        Course c3 = new Course(2, "Jpa Course", 1999.99, "1 months");
+        Course[] cs = {c1, c2, c3};
+        model.addAttribute("cs", cs);
+        return "courses";
+    }
 }
