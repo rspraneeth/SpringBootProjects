@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
+
 
 @Controller
 public class CustomerController {
@@ -26,7 +26,7 @@ public class CustomerController {
     }
 
     @PostMapping("/addNewCustomer")
-    public String addCustomer(@ModelAttribute CustomerInfo cust, Map<String, Object> model){
+    public String addCustomer(@ModelAttribute CustomerInfo cust){
         service.newCustomer(cust);
         return "redirect:/customers";
     }
@@ -35,7 +35,7 @@ public class CustomerController {
     public String showFormPage(Map<String, Object> model){
         CustomerInfo info = new CustomerInfo();
         model.put("customer", info);
-        return "showForm";
+        return "showform";
     }
 
     @GetMapping("/updatecustomer")
@@ -43,7 +43,7 @@ public class CustomerController {
         CustomerInfo cu = service.findCustomerById(id).orElseThrow();
         model.put("customer", cu);
 
-        return "showForm";
+        return "showform";
     }
 
     @GetMapping("deletecustomer")
