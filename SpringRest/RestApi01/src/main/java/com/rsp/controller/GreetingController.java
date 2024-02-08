@@ -1,11 +1,9 @@
 package com.rsp.controller;
 
+import com.rsp.pojo.Details;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 
@@ -27,4 +25,30 @@ public class GreetingController {
 
         return new ResponseEntity<>(body, HttpStatus.OK);
     }
+
+    @GetMapping("/msg")
+    public String generateMessage(@RequestParam(value = "name", required = false, defaultValue = "Buddy") String name){
+
+        return "Hello "+name+", Have a good day!";
+    }
+
+    @GetMapping("/msg/{name}")
+    public String generateMsg(@PathVariable("name") String name){
+
+        return "Hello "+name+", Have a good day!";
+    }
+
+    @PostMapping(value = "/msg2")
+    public Details generateMsgDetails(@RequestBody Details details){
+
+        return details;
+    }
+
+    @PostMapping(value = "/msg3", params = "name=Praneeth")
+    public String generateMsgDetailsParam(@RequestParam String name, @RequestParam String mail, @RequestParam Double salary){
+
+        return "Details: "+name+", "+mail+", "+salary;
+    }
+
+
 }
