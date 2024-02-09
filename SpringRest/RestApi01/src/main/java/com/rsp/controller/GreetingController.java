@@ -6,10 +6,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.util.concurrent.ConcurrentHashMap;
 
 @RestController //@Controller + @ResponseBody is replaced by RestController.
 @RequestMapping("/rest")
 public class GreetingController {
+
+
 
     @GetMapping("/api1")
 //    @ResponseBody
@@ -46,9 +49,10 @@ public class GreetingController {
 
     @PostMapping(value = "/msg3", params = "name=Praneeth")
     public String generateMsgDetailsParam(@RequestParam String name, @RequestParam String mail, @RequestParam Double salary){
-
         return "Details: "+name+", "+mail+", "+salary;
     }
+
+
 
 
 }
