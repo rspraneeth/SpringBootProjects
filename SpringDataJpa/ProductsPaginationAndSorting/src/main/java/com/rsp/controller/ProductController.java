@@ -3,6 +3,8 @@ package com.rsp.controller;
 import com.rsp.dto.ApiResponse;
 import com.rsp.entity.Product;
 import com.rsp.service.ProductService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,18 +14,22 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+
 @RestController
 @RequestMapping("/products")
 public class ProductController {
+
+    private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
 
     @Autowired
     private ProductService service;
 
     @GetMapping
     private ApiResponse<List<Product>> getProducts(){
-
+        logger.info("getting all products");
         List<Product> list = service.findAllProducts();
-
+        logger.info("fetched all products");
+        logger.debug("debug logger");
         return new ApiResponse<>(list.size(), list);
     }
 
