@@ -41,13 +41,28 @@ public class ProductService {
     public Page<Product> findProductsWithPagination(int offset, int pageSize){
 
         return repo.findAll(PageRequest.of(offset, pageSize));
-
     }
 
     public Page<Product> findProductsWithPaginationAndSorting(int offset, int pageSize, String field){
 
         return repo.findAll(PageRequest.of(offset, pageSize).withSort(Sort.by(Sort.Direction.ASC, field)));
-
     }
+
+    public Page<Product> findProductsByMaxPricePages(int offset, int pageSize, Long maxPrice){
+
+        return repo.findByPriceLessThan(PageRequest.of(offset, pageSize), maxPrice);
+    }
+
+
+    public Page<Product> findProductsByMaxPricePagesSort(int offset, int pageSize, Long maxPrice){
+
+        return repo.findByPriceLessThan(PageRequest.of(offset, pageSize).withSort(Sort.by(Sort.Direction.ASC, "price")), maxPrice);
+    }
+
+
+//    public Page<Product> findProductsWithPaginationOne(int pageSize){
+//
+//        return repo.findAll(PageRequest.ofSize(pageSize)); //gives single page with pageSize objects
+//    }
 
 }
