@@ -9,6 +9,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -24,9 +25,16 @@ public class ProductService {
 //    initiating products table with random 200 products, so we only run this for once initially to load values into db
 //    @PostConstruct
 //    public void initDB(){
-//        List<Product> products = IntStream.rangeClosed(1, 200)
-//                .mapToObj(i->new Product("product "+i, new Random().nextInt(100), (long) new Random().nextInt(50000)))
-//                .toList();
+//        /*
+//        //        List<Product> products = IntStream.rangeClosed(1, 200)
+//        //                .mapToObj(i->new Product("product "+i, new Random().nextInt(100), (long) new Random().nextInt(50000)))
+//        //                .toList();
+//        */
+//
+//        List<Product> products = new ArrayList<>();
+//        for (int i = 1; i <= 50; i++){
+//            products.add(new Product("product"+i, new Random().nextInt(1, 10), new Random().nextLong(1, 100)));
+//        }
 //        repo.saveAll(products);
 //    }
 
