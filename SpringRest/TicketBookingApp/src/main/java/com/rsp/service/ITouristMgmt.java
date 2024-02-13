@@ -10,4 +10,6 @@ public interface ITouristMgmt {
     String registerTourist(Tourist tourist);
     Tourist fetchTouristById(Integer id);
     List<Tourist> fetchAllTourists();
+    String updateTouristData(Tourist tourist);
+    String updateTouristById(Integer id, Double budget);
 }

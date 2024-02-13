@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TouristMgmtService implements ITouristMgmt{
@@ -29,5 +30,28 @@ public class TouristMgmtService implements ITouristMgmt{
     @Override
     public List<Tourist> fetchAllTourists() {
         return touristRepo.findAll();
+    }
+
+    @Override
+    public String updateTouristData(Tourist tourist) {
+        Optional<Tourist> optional = touristRepo.findById(tourist.getId());
+        if (optional.isPresent()){
+            touristRepo.save(tourist);
+            return "Tourist with id "+tourist.getId()+" updated.";
+        }else
+            throw new TouristNotFoundException("Tourist with id "+tourist.getId()+" not found.");
+    }
+
+    @Override
+    public String updateTouristById(Integer id, Double budget) {
+        Optional<Tourist> tourist = touristRepo.findById(id);
+
+        if (tourist.isPresent()){
+            Tourist tourist1 = tourist.get();
+            tourist1.setBudget(budget);
+            touristRepo.save(tourist1);
+            return "Tourist with id "+tourist1.getId()+" updated.";
+        }else
+            throw new TouristNotFoundException("Tourist with id "+id+" is not present to update.");
     }
 }
