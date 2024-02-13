@@ -54,4 +54,15 @@ public class TouristMgmtService implements ITouristMgmt{
         }else
             throw new TouristNotFoundException("Tourist with id "+id+" is not present to update.");
     }
+
+    @Override
+    public String deleteById(Integer id) {
+        try{
+            touristRepo.deleteById(id);
+            return "Deleted tourist with id "+id;
+        } catch (TouristNotFoundException e){
+            throw new TouristNotFoundException("Tourist with id "+id+" is not present to delete.");
+        }
+
+    }
 }

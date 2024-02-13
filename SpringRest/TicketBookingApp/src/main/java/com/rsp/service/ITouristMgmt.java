@@ -12,4 +12,5 @@ public interface ITouristMgmt {
     List<Tourist> fetchAllTourists();
     String updateTouristData(Tourist tourist);
     String updateTouristById(Integer id, Double budget);
+    String deleteById(Integer id);
 }
