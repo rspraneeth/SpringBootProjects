@@ -20,7 +20,7 @@ public class Ticket {
     private String status;
     private Double cost;
 
-    @OneToOne
+    @ManyToOne
     private Passenger passenger;
 
 }
