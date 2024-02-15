@@ -11,19 +11,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Random;
+
 @RestController
-@RequestMapping("/passengers")
+@RequestMapping("/passenger-api")
 public class TicketBookingController {
 
     @Autowired
     private ITicketBookingService service;
 
-    @PostMapping("/getTicketNumber")
+    @PostMapping("/get-ticket")
     public ResponseEntity<Ticket> enrollPassenger(@RequestBody Passenger passenger){
 
         Passenger p = service.registerPassenger(passenger);
         Ticket t = new Ticket();
-        t.setTicketNumber(p.getId());
+        t.setTicketNumber(new Random().nextInt(11111, 99999));
         t.setName(p.getName());
         t.setArrival(p.getArrival());
         t.setDeparture(p.getDeparture());
