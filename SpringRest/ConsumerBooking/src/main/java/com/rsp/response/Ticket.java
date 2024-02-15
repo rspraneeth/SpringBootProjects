@@ -1,5 +1,6 @@
 package com.rsp.response;
 
+import com.rsp.request.Passenger;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,9 +16,6 @@ public class Ticket {
     private Integer ticketNumber;
     private String status;
     private Double cost;
-    private String name;
-    private String departure;
-    private String arrival;
-    private LocalDate dateOfJourney;
+    private Passenger passenger;
 
 }

@@ -31,9 +31,12 @@ public class BookingController {
     }
 
 
-//    @GetMapping("/")
-//    public String getTicketDetails(@PathVariable Integer id, Model model){
-//
-//        return "";
-//    }
+    @GetMapping("/get-ticket")
+    public String getTicketDetails(@RequestParam Integer conf, Model model){
+
+        Ticket tkt = service.fetchTicketInfo(conf);
+        model.addAttribute("ticketNumber", tkt);
+
+        return "ticket-details";
+    }
 }

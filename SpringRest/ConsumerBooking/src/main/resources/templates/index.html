@@ -43,5 +43,15 @@
             </tr>
         </table>
     </form>
+
+    <div>
+        <p>Find Ticket Details here!!!</p>
+        <form th:action="@{/booking-api/get-ticket}" method="get" >
+            <p>Enter ticket confirmation id: <input type="text" name="conf"></p>
+            <button type="submit">Find</button>
+        </form>
+    </div>
+
+
 </body>
 </html>

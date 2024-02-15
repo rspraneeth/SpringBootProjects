@@ -15,7 +15,7 @@
       </tr>
       <tr>
         <td>Passenger Name: </td>
-        <td><p th:text="${ticketNumber.getName()}"></p></td>
+        <td><p th:text="${ticketNumber.getPassenger().getName()}"></p></td>
       </tr>
       <tr>
         <td>Ticket Status: </td>
@@ -27,17 +27,25 @@
       </tr>
       <tr>
         <td>Arrival Location: </td>
-        <td><p th:text="${ticketNumber.getArrival()}"></p></td>
+        <td><p th:text="${ticketNumber.getPassenger().getArrival()}"></p></td>
       </tr>
       <tr>
         <td>Departure Location: </td>
-        <td><p th:text="${ticketNumber.getDeparture()}"></p></td>
+        <td><p th:text="${ticketNumber.getPassenger().getDeparture()}"></p></td>
       </tr>
       <tr>
         <td>Date of Journey: </td>
-        <td><p th:text="${ticketNumber.getDateOfJourney()}"></p></td>
+        <td><p th:text="${ticketNumber.getPassenger().getDateOfJourney()}"></p></td>
       </tr>
     </table>
+
+  <div>
+    <p>Find Ticket Details here!!!</p>
+    <form th:action="@{/booking-api/get-ticket}" method="get" >
+      <p>Enter ticket confirmation id: <input type="text" name="conf"></p>
+      <button type="submit">Find</button>
+    </form>
+  </div>
 
 
 </body>
