@@ -1,8 +1,15 @@
 package com.rsp.service;
 
 import com.rsp.model.Passenger;
+import com.rsp.model.Ticket;
+
+import java.util.Optional;
 
 public interface ITicketBookingService {
-    public Passenger registerPassenger(Passenger passenger);
-    public Passenger getPassengerInfo(Integer id);
+    Passenger registerPassenger(Passenger passenger);
+    Passenger getPassengerInfo(Integer id);
+
+    Ticket getTicketInfo(Integer tktNum);
+
+    Ticket createTicket(Passenger p);
 }
