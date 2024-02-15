@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Your ticket</title>
+</head>
+<body>
+  <h1 style="color: lightblue">Your ticket is here!</h1>
+<!--  <p style="color: black; text-decoration: beige" th:text="${ticketNumber}"></p>-->
+
+    <table>
+      <tr>
+        <td>Ticket Confirmation: </td>
+        <td><p th:text="${ticketNumber.getTicketNumber()}"></p></td>
+      </tr>
+      <tr>
+        <td>Passenger Name: </td>
+        <td><p th:text="${ticketNumber.getName()}"></p></td>
+      </tr>
+      <tr>
+        <td>Ticket Status: </td>
+        <td><p th:text="${ticketNumber.getStatus()}"></p></td>
+      </tr>
+      <tr>
+        <td>Ticket Cost: </td>
+        <td><p th:text="${ticketNumber.getCost()}"></p></td>
+      </tr>
+      <tr>
+        <td>Arrival Location: </td>
+        <td><p th:text="${ticketNumber.getArrival()}"></p></td>
+      </tr>
+      <tr>
+        <td>Departure Location: </td>
+        <td><p th:text="${ticketNumber.getDeparture()}"></p></td>
+      </tr>
+      <tr>
+        <td>Date of Journey: </td>
+        <td><p th:text="${ticketNumber.getDateOfJourney()}"></p></td>
+      </tr>
+    </table>
+
+
+</body>
+</html>

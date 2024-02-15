@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Book ticket</title>
+</head>
+<body>
+    <h1 style="color: lightblue">Book your ticket here!</h1>
+
+    <form th:action="@{/booking-api/book}" th:object="${passenger}" method="post">
+        <table>
+            <tr>
+                <td>Passenger Name: </td>
+                <td>
+                    <p><input type="text" th:field="*{name}" /></p>
+                </td>
+            </tr>
+            <tr>
+                <td>Departure: </td>
+                <td>
+                    <p><input type="text" th:field="*{departure}" /></p>
+                </td>
+            </tr>
+            <tr>
+                <td>Arrival: </td>
+                <td>
+                    <p><input type="text" th:field="*{arrival}" /></p>
+                </td>
+            </tr>
+            <tr>
+                <td>Date of Journey: </td>
+                <td>
+                    <p><input type="date" th:field="*{dateOfJourney}" /></p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><input type="submit" value="Submit" /> </p>
+                </td>
+                <td>
+                    <p><input type="reset" value="Reset" /></p>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
