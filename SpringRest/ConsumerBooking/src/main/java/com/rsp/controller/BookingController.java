@@ -17,7 +17,7 @@ public class BookingController {
 
     @GetMapping("/book")
     public String bookTicketForm(Model model){
-        model.addAttribute("passenger", new Passenger());
+        model.addAttribute("passanger", new Passenger());
         return "index";
     }
 
