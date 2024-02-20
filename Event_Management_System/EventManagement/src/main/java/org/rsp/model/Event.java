@@ -5,7 +5,7 @@ import lombok.Data;
 
 import java.time.LocalDateTime;
 
-@Entity
+@Entity(name = "eventtable")
 @Data
 public class Event {
 
@@ -19,7 +19,5 @@ public class Event {
     private String venue;
     private int availableTickets;
     private double ticketPrice;
-    @Lob
-    @Column(columnDefinition = "LONGBLOB")
-    private byte[] image;
+
 }

@@ -2,13 +2,17 @@ package org.rsp.service;
 
 import org.rsp.dao.UserRepo;
 import org.rsp.model.User;
+import org.rsp.model.UserPrincipal;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
-public class UserService {
+public class UserService implements UserDetailsService {
 
     @Autowired
     private UserRepo userRepo;
@@ -22,4 +26,18 @@ public class UserService {
     }
 
 
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        System.out.println("Service class, loadUserByUsernameMethod for "+username);
+        Optional<User> optionalUser = userRepo.findByEmail(username);
+        if(optionalUser.isEmpty()) {
+            System.out.println("didnt find user, exception");
+            throw new UsernameNotFoundException(username);
+        }
+        else{
+            System.out.println(optionalUser.get());
+            return new UserPrincipal(optionalUser.get());
+        }
+
+    }
 }
