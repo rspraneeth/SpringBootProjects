@@ -34,7 +34,7 @@ public class WebSecurityConfig {
                 .csrf()
                 .disable()
                 .authorizeRequests()
-                .requestMatchers("/login")
+                .requestMatchers("/login", "/webjars/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()

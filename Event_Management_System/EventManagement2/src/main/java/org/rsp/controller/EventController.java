@@ -19,16 +19,15 @@ public class EventController {
     @Autowired
     private EventService eventService;
 
-    @PreAuthorize("hasRole('ADMIN')")
+
     @GetMapping("/addEvent")
     public String addEventForm(Model model){
         model.addAttribute("event", new Event());
         return "addEventForm";
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/addEvent")
-    public String addEvent(@ModelAttribute Event event, @RequestParam("imageFile")MultipartFile imageFile){
+    public String addEvent(@ModelAttribute Event event){
 
         eventService.saveEvent(event);
         return "admin-dashboard";

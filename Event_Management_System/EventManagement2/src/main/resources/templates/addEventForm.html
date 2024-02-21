@@ -6,13 +6,10 @@
 </head>
 <body>
 <h2>Add Event</h2>
-<form th:action="@{/addEvent}" th:object="${event}" method="post" enctype="multipart/form-data">
+<form th:action="@{/addEvent}" th:object="${event}" method="post">
     <label>Name: <input type="text" th:field="*{name}" /></label><br/>
     <label>Description: <input type="text" th:field="*{description}" /></label><br/>
-    <label for="category">Category:</label>
-    <select id="category" name="category" th:field="*{category}" required>
-        <option th:each="cat : ${categories}" th:value="${cat}" th:text="${cat}">Category</option>
-    </select>
+    <label>Category: <input type="text" th:field="*{category}" /></label><br/>
     <label>Date and Time: <input type="datetime-local" th:field="*{dateTime}" /></label><br/>
     <label>Venue: <input type="text" th:field="*{venue}" /></label><br/>
     <label>Available Tickets: <input type="number" th:field="*{availableTickets}" /></label><br/>

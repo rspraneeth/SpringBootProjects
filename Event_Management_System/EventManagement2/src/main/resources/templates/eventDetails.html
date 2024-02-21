@@ -16,11 +16,10 @@
     <p th:text="${event.availableTickets}">Available Tickets</p>
     <p th:text="${event.ticketPrice}">Ticket Price</p>
 
-    <img th:if="${event.image}" th:src="@{'data:image/png;base64,' + #strings.arrayAsBase64(event.image)}" alt="Event Image">
 
 
 
-    <a th:href="@{/admin/dashboard}">Back to Dashboard</a>
+    <a th:href="@{/}">Back to Dashboard</a>
 </div>
 </body>
 </html>
