@@ -8,7 +8,7 @@
     <h2>Events</h2>
     <ul th:each="event:${events}">
         <li>
-            <a th:href="@{'/events/' + ${event.id}}" th:text="${event.name}"></a>
+            <a th:href="@{/events/{eventId}(eventId=${event.id})}" th:text="${event.name}"></a>
         </li>
     </ul>
 </body>
