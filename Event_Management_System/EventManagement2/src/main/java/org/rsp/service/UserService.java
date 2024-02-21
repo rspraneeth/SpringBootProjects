@@ -40,4 +40,9 @@ public class UserService implements UserDetailsService {
         }
 
     }
+
+    public User getUserById(Integer userId) {
+        System.out.println("user id is "+userId);
+        return userRepo.findById((long)userId).get();
+    }
 }

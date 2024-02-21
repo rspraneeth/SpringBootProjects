@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleag.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Event Details</title>
@@ -10,14 +10,12 @@
 
     <p th:text="${event.description}">Event Description</p>
     <p th:text="${event.category}">Event Category</p>
-<!--    <p th:text="${#dates.format(event.dateTime, 'yyyy-MM-dd HH:mm')}">Event Date and Time</p>-->
-
     <p th:text="${event.venue}">Event Venue</p>
     <p th:text="${event.availableTickets}">Available Tickets</p>
     <p th:text="${event.ticketPrice}">Ticket Price</p>
 
 
-
+    <a th:href="@{/reservation/new/{eventId}(eventId=${event.id})}">Book event</a>
 
     <a th:href="@{/}">Back to Dashboard</a>
 </div>

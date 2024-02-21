@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EventService {
@@ -22,5 +23,11 @@ public class EventService {
 
     public Event getEventById(Long id) {
         return eventRepo.findById(id).orElse(null);
+    }
+
+    public Event findEventById(int eventId) {
+        Optional<Event> opt = eventRepo.findById((long) eventId);
+        if (opt.isPresent()) return opt.get();
+        else return new Event();
     }
 }

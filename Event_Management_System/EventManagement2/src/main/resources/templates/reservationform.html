@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Reservation</title>
+</head>
+<body>
+<h3>Book event!</h3>
+
+<form th:action="@{/reservation/new}" method="post" th:object="${reservation}">
+    <div>
+        <div>
+            <label>Enter Number Of Tickets</label>
+            <input name="tickets" type="text" placeholder="Number of Tickets">
+        </div>
+
+        <input name="userId" th:value="${session.user.id}" type="hidden">
+        <input name="eventId" th:value="${event.id}" type="hidden">
+    </div>
+
+    <div>
+        <button type="submit">Submit Booking</button>
+    </div>
+</form>
+
+</body>
+</html>

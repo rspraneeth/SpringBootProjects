@@ -21,33 +21,23 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-//    @GetMapping("/register")
-//    public String showRegistrationForm(Model model){
-//        model.addAttribute("user", new User());
-//        return "registration";
-//    }
-//
-//    @PostMapping("/register")
-//    public String registerUser(@ModelAttribute("user") User user){
-//        userService.registerUser(user);
-//        return "home";
-//    }
+    @GetMapping("/register")
+    public String showRegistrationForm(Model model){
+        model.addAttribute("user", new User());
+        return "registration";
+    }
+
+    @PostMapping("/register")
+    public String registerUser(@ModelAttribute("user") User user){
+        userService.registerUser(user);
+        return "login";
+    }
 
     @GetMapping("/login")
     public String showLoginForm(){
         return "login";
     }
 
-//    @PostMapping("/login")
-//    public String loginUser(User user, Model model){
-//        Optional<User> userEmail = userService.getUserByEmail(user.getEmail());
-//        if (userEmail.isPresent() && userEmail.get().getPassword().equals(user.getPassword())){
-//            return "redirect:/dashboard";
-//        }else {
-//            model.addAttribute("error", "Invalid details");
-//            return "login";
-//        }
-//    }
 
     @GetMapping("/")
     public String showDashboard(HttpSession session, Model model){
