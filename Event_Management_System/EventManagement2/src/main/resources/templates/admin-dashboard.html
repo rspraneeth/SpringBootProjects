@@ -3,18 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" th:href="@{~/webjars/AdminLTE/3.2.0/plugins/fontawesome-free/css/all.min.css}">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" th:href="@{~/webjars/AdminLTE/3.2.0/plugins/icheck-bootstrap/icheck-bootstrap.min.css}">
+    <!-- Theme style -->
+    <link rel="stylesheet" th:href="@{~/webjars/AdminLTE/3.2.0/dist/css/adminlte.min.css}">
+
 </head>
 <body>
     <h1>Admin Dashboard</h1>
     <h2>Admin Successfully logged in!</h2>
     <p th:text="${user}"></p>
 
-    <div class="container">
-        <a href="/addEvent">Add Event</a>
-        <a href="/events">View Events</a>
 
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <a href="/addEvent">Add Event</a>
+                <div class="col-md-6">
+                    <a href="/events">View Events</a>
+                </div>
+            </div>
+            <div class="row">
+                <a href="/admin/reservation">Add Reservation</a>
+                <div class="col-md-6">
+                    <a href="/admin/all-reservations">All Reservations</a>
+                </div>
+            </div>
+        </div>
     </div>
-
     <a href="/logout">Log out</a>
+
+    <script th:src="@{~/webjars/AdminLTE/3.2.0/plugins/jquery/jquery.min.js}"></script>
+    <!-- Bootstrap 4 -->
+    <script th:src="@{~/webjars/AdminLTE/3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <!-- AdminLTE App -->
+    <script th:src="@{~/webjars/AdminLTE/3.2.0/dist/js/adminlte.min.js}"></script>
 </body>
 </html>

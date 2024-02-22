@@ -37,4 +37,28 @@ public class ReservationController {
         reservationService.addReservation(reservation);
         return "all-reservations";
     }
+
+    @GetMapping("/admin/reservation")
+    public String newAdminReservation(Model model){
+
+        model.addAttribute("events", eventService.getAllEvents());
+        model.addAttribute("users", userService.getAllUsers());
+        model.addAttribute("resReq", new ReservationReq());
+        return "admin-add-reservation";
+    }
+
+    @PostMapping("/admin/reservation/add")
+    public String makeAdminReservation(@ModelAttribute ReservationReq resReq, Model model){
+        Reservation reservation = new Reservation(resReq.getTickets(), userService.getUserById(resReq.getUserId()), eventService.findEventById(resReq.getEventId()));
+        System.out.println(reservation);
+        reservationService.addReservation(reservation);
+        model.addAttribute("reservations", reservationService.getAll());
+        return "all-reservations";
+    }
+
+    @GetMapping("/admin/all-reservations")
+    public String allReservationsAdmin(Model model){
+        model.addAttribute("reservations", reservationService.getAll());
+        return "all-reservations";
+    }
 }

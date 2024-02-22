@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">>
+<head>
+    <meta charset="UTF-8">
+    <title>Admin New Reservation</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" th:href="@{~/webjars/AdminLTE/3.2.0/plugins/fontawesome-free/css/all.min.css}">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" th:href="@{~/webjars/AdminLTE/3.2.0/plugins/icheck-bootstrap/icheck-bootstrap.min.css}">
+    <!-- Theme style -->
+    <link rel="stylesheet" th:href="@{~/webjars/AdminLTE/3.2.0/dist/css/adminlte.min.css}">
+
+</head>
+<body>
+<h1> In admin add reservation page</h1>
+
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">New Reservation</h3>
+        </div>
+
+        <form th:action="@{/admin/reservation/add}" method="post" th:object="${resReq}">
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="eventId">Event</label>
+                    <select name="eventId" class="custom-select form-control-border" id="eventId">
+                        <option th:each="event: ${events}" th:value="${event.id}" th:text="${event.name}"></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="userId">User</label>
+                    <select name="userId" class="custom-select form-control-border" id="userId">
+                        <option th:each="user: ${users}" th:value="${user.id}" th:text="${user.name}"></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="tickets">No of Tickets</label>
+                    <input name="tickets" id="tickets" type="text" placeholder="2" class="form-control form-control-border">
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+<script th:src="@{~/webjars/AdminLTE/3.2.0/plugins/jquery/jquery.min.js}"></script>
+<!-- Bootstrap 4 -->
+<script th:src="@{~/webjars/AdminLTE/3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+<!-- AdminLTE App -->
+<script th:src="@{~/webjars/AdminLTE/3.2.0/dist/js/adminlte.min.js}"></script>
+</body>
+</html>

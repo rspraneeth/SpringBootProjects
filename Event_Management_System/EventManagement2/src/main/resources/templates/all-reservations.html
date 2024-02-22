@@ -1,10 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Reservation</title>
+    <title>Reservations</title>
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" th:href="@{~/webjars/AdminLTE/3.2.0/plugins/fontawesome-free/css/all.min.css}">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" th:href="@{~/webjars/AdminLTE/3.2.0/plugins/icheck-bootstrap/icheck-bootstrap.min.css}">
+    <!-- Theme style -->
+    <link rel="stylesheet" th:href="@{~/webjars/AdminLTE/3.2.0/dist/css/adminlte.min.css}">
 </head>
 <body>
-    <h1>All reservation for current user</h1>
+    <h1>All reservations admin page</h1>
+
+    <div class="content-wrapper">
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Reservations</h1>
+                    </div>
+                </div>
+            </div><!-- /.container-fluid -->
+        </section>
+        <section class="content">
+            <div class="card card-solid">
+                <div class="card-body pb-0">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column" th:each="reservation: ${reservations}">
+                            <div class="card bg-light d-flex flex-fill" >
+                                <div class="card-body pt-0">
+                                    <div class="row">
+                                        <div class="col-7">
+                                            <ul class="ml-4 mb-0 fa-ul text-muted">
+                                                <li class="small"><span class="fa-li"><i class="fas fa-lg"></i></span> Reservation id:
+                                                    <p th:text="${reservation.id}"></p>
+                                                </li>
+                                                <li class="small"><span class="fa-li"><i class="fas fa-lg"></i></span> Event Name:
+                                                    <p th:text="${reservation.event.name}"></p></li>
+                                                </li>
+                                                <li class="small"><span class="fa-li"><i class="fas fa-lg"></i></span> User Name:
+                                                    <p th:text="${reservation.user.name}"></p>
+                                                </li>
+                                                <li class="small"><span class="fa-li"><i class="fas fa-lg"></i></span> No of tickets:
+                                                    <p th:text="${reservation.tickets}"></p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+
+
+
+
+    <!-- jQuery -->
+    <script th:src="@{~/webjars/AdminLTE/3.2.0/plugins/jquery/jquery.min.js}"></script>
+    <!-- Bootstrap 4 -->
+    <script th:src="@{~/webjars/AdminLTE/3.2.0/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    <!-- AdminLTE App -->
+    <script th:src="@{~/webjars/AdminLTE/3.2.0/dist/js/adminlte.min.js}"></script>
 </body>
 </html>
