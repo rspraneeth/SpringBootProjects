@@ -28,6 +28,6 @@ public class EventService {
     public Event findEventById(int eventId) {
         Optional<Event> opt = eventRepo.findById((long) eventId);
         if (opt.isPresent()) return opt.get();
-        else return new Event();
+        else throw new RuntimeException();
     }
 }
