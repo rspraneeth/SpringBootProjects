@@ -3,6 +3,8 @@ package com.rsp.controller;
 import com.rsp.model.Passenger;
 import com.rsp.model.Ticket;
 import com.rsp.service.ITicketBookingService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,11 +13,13 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/passenger-api")
+@Tag(name = "ticket booking api", description = "ticket booking controller")
 public class TicketBookingController {
 
     @Autowired
     private ITicketBookingService service;
 
+    @Operation(summary = "POST method", description = "creates a ticket for entered user, accepts passenger obj and returns ticket response")
     @PostMapping("/get-ticket")
     public ResponseEntity<Ticket> enrollPassenger(@RequestBody Passenger passenger){
 
