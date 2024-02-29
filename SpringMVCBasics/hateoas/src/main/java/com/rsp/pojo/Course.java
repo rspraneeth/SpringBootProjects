@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.ToString;
 
 @AllArgsConstructor @ToString
-public class Course {
+public class Course{
 
     private Integer id;
     private String name;
