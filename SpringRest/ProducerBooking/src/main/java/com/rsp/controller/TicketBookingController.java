@@ -30,6 +30,7 @@ public class TicketBookingController {
     public ResponseEntity<Ticket> enrollPassenger(@RequestBody Passenger passenger){
 
         logger.debug("request reached api end point in controller");
+        logger.trace("request reached api end point in controller, with trace logger check");
         Passenger p = service.registerPassenger(passenger);
         Ticket t = service.createTicket(p);
 
