@@ -4,6 +4,8 @@ import com.rsp.dao.IPassengerRepo;
 import com.rsp.dao.ITicketRepo;
 import com.rsp.model.Passenger;
 import com.rsp.model.Ticket;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,8 @@ import java.util.Random;
 @Service
 public class TicketBookingServiceImpl implements ITicketBookingService{
 
+    private static final Logger logger = LoggerFactory.getLogger(TicketBookingServiceImpl.class);
+
     @Autowired
     private IPassengerRepo repo;
 
@@ -20,6 +24,7 @@ public class TicketBookingServiceImpl implements ITicketBookingService{
     private ITicketRepo ticketRepo;
     @Override
     public Passenger registerPassenger(Passenger passenger) {
+        logger.error("just checking error console");
         return repo.save(passenger);
     }
 
@@ -30,6 +35,7 @@ public class TicketBookingServiceImpl implements ITicketBookingService{
 
     @Override
     public Ticket  getTicketInfo(Integer tktNum) {
+        logger.trace("checking trace");
        return ticketRepo.findById(tktNum).orElseThrow();
     }
 
