@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.condition.*;
 
 import java.time.Duration;
 
@@ -20,6 +21,7 @@ class ReverseStringTest {
     }
 
     @Test
+    @DisplayName("test1")
     void reverseString() {
         assertEquals("avaj", r.reverseString("java"), "String reverse function is not working");
         assertNotEquals("qqq", r.reverseString("kohli"));
@@ -29,6 +31,10 @@ class ReverseStringTest {
     }
 
     @Test
+//    @Disabled
+//    @EnabledOnOs(OS.LINUX)
+//    @EnabledOnJre(JRE.JAVA_17)
+//    @EnabledForJreRange(min = JRE.JAVA_8, max = JRE.JAVA_11)
     void reverseString_Supplier() {
         assertEquals("avaj", r.reverseString("java"), ()-> "String reverse function is not working");
     }
