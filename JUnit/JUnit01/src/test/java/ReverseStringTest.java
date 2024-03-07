@@ -39,12 +39,12 @@ class ReverseStringTest {
         assertEquals("avaj", r.reverseString("java"), ()-> "String reverse function is not working");
     }
 
-    @Test
+    @RepeatedTest(3)
     void testArrays(){
         int[] act = {1, 2, 3};
         int[] exp = {1, 2, 3};
         assertArrayEquals(exp, act);
-        assertTimeout(Duration.ofMillis(5), ()->{for (int i = 0; i < 1000000; i++){}});
+        assertTimeout(Duration.ofMillis(3), ()->{for (int i = 0; i < 1000000; i++){}});
     }
 
     @AfterEach
