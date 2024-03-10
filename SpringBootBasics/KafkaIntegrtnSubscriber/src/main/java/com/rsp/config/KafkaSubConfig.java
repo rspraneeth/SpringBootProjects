@@ -28,9 +28,11 @@ public class KafkaSubConfig {
         return new DefaultKafkaConsumerFactory<>(configProps);
     }
 
-    @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, Customer> kafkaListenerFactory(){
-
+    @Bean(name = "kafkaListener")
+    public ConcurrentKafkaListenerContainerFactory<String, Customer> kafkaListenerContainerFactory(){
+        // giving a bean name here is imp, if not error, Spring Boot expects the bean name,
+        // will recognize it as the bean responsible for creating Kafka listener containers.
+        // else should give method name as kafkaListenerFactory(), so spring will recognize
         ConcurrentKafkaListenerContainerFactory<String, Customer> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
         return factory;
