@@ -17,13 +17,13 @@ public class KafkaService {
 
     public String addMessage(Customer cx){
         kafkaTemplate.send(AppConstants.TOPIC_NAME, cx);
-        return "Message published to kafka topic";
+        return "******Message published to kafka topic******";
     }
 
     public String add(List<Customer> customers){
         if (!customers.isEmpty()){
             for (Customer c: customers){
-                kafkaTemplate.send(AppConstants.TOPIC_NAME, c);
+                kafkaTemplate.send(AppConstants.TOPIC_NAME, c); // publishing data to kafka topic using kafka template
                 System.out.println("***********Message published to Kafka topic**********");
             }
         }
