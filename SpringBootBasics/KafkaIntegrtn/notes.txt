@@ -1,0 +1,34 @@
+Apache Kafka 
+	- Message broker(One app giving data to another app)
+	- Used to process real time data feeds with low latency
+	- Based on Producer and Subscriber model
+	
+	1. ZooKeeper (env to run kafka server)
+	2. Kafka Server ()
+	3. Kafka topic (Present in kafka server, pub and subs gets data from kafka topic)
+	4. Message
+	5. Publisher 
+	6. Subscriber
+	
+	- Connector API: Help connect my app to kafka server
+	- Publisher API: Help publish my data into kafka server
+	- Subscriber API: Help subscribe data from kafka server
+	- Stream API: Help process data
+	
+	---------------------------------------------------------
+	
+	- Download ZooKeeper
+	- Set path to ZooKeeper in Env variables
+	- Download Apache Kafka
+	- From Kafka->Config, copy server & zookeeper properties into Kafka->bin->windows.
+	- Open cmd from same windows path (Kafka->bin->windows)
+	- Start ZooKeeper server using "zookeeper-server-start.bat zookeeper.properties"
+	- Start Kafka server using "kafka-server-start.bat server.properties"
+	- check for port number, started msg
+	
+	
+	---------------------------------------------------------
+	
+	- Add Kafka & Kafka Streams dependencies to springboot project
+	- Publisher: https://github.com/rspraneeth/SpringBootProjects/tree/main/SpringBootBasics/KafkaIntegrtn	
+	- Subscriber:  https://github.com/rspraneeth/SpringBootProjects/tree/main/SpringBootBasics/KafkaIntegrtnSubscriber
