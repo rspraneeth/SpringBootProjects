@@ -1,0 +1,14 @@
+spring:
+  batch:
+    jdbc:
+      initialize-schema: always
+
+  datasource:
+    url: jdbc:mysql:///batch-processing
+    username: root
+    password: projectK
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
