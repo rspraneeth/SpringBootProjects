@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Random;
+import java.util.random.RandomGenerator;
 
 @Service
 public class ProductService {
@@ -21,7 +22,7 @@ public class ProductService {
 
     public String saveMultipleProducts(){
         for (int i=1; i <= 50; i++){
-            productRepo.save(new Product(i, "Prod"+i, new Random().ints(1001, 9999).toString()));
+            productRepo.save(new Product(i, "Prod"+i,  new Random().nextInt(1001, 9999)));
         }
         return "Saved Multiple Products into db";
     }
