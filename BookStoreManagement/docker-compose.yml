@@ -1,0 +1,34 @@
+version: "3.7"
+
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    networks:
+      - my-network
+
+
+
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: booksdb
+      MYSQL_USER: rsp
+      MYSQL_PASSWORD: 1234
+    ports:
+      - "3306:3306"
+    networks:
+      - my-network
+    volumes:
+      - my-volume:/var/lib/mysql
+
+networks:
+  my-network:
+    driver: bridge
+
+volumes:
+  my-volume:
