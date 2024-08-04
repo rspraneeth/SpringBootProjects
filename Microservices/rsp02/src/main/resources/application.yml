@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: rsp02
+
+  boot:
+    admin:
+      client:
+        url: http://localhost:1414/
+
+
+#server:
+#  port: 8585
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
