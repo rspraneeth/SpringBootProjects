@@ -29,4 +29,9 @@ public class Rsp2Controller {
 
         return "Response from rsp01 service2 is: "+response+" and current end points response from service2 is: This course started already.....";
     }
+
+    @GetMapping("/msg")
+    public String msg(){
+        return "This message is intended to use with rsp01 application, the port number used in rsp02 app is: "+environment.getProperty("local.server.port");
+    }
 }
