@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: ApiGateway
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: rsp-api1
+          uri: lb://RSP01
+          predicates:
+            - Path=/info
+        - id: rsp-api2
+          uri: lb://RSP02
+          predicates:
+            - Path=/more-info
+
+server:
+  port: 4444
