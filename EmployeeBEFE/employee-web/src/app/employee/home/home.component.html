@@ -1,0 +1,27 @@
+<div class="container" style="width: 850px;">
+    <input class="mt-4" (input)="filterEmployees(filter.value)" type="search" name="inputSearch" id="inputSearch" placeholder="Search for an employee" style="width: 225px;" #filter>
+    <table class="table table-striped" style="border: 1px lightcyan;">
+        <thead>
+            <tr class="bg-primary">
+                <th (click)="sortBy('id')" scope="col">EmployeeID</th>
+                <th (click)="sortBy('name')" scope="col">Name</th>
+                <th (click)="sortBy('email')" scope="col">Email</th>
+                <th (click)="sortBy('phone')" scope="col">Phone</th>
+                <th scope="col">Update</th>
+                <th scope="col">Remove</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let emp of employees">
+                <td scope="row">{{emp.id}}</td>
+                <td>{{emp.name}}</td>
+                <td>{{emp.email}}</td>
+                <td>{{emp.phone}}</td>
+                <td><button class="btn btn-primary" [routerLink]="['/employee/edit', emp.id]">Edit</button></td>
+                <td><button class="btn btn-danger" (click)="delete(emp.id)">Delete</button></td>
+                
+            </tr>
+        </tbody>
+    </table>
+</div>
